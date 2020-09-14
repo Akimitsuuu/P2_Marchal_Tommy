@@ -10,8 +10,6 @@ import static com.openclassrooms.magicgithub.api.FakeApiServiceGenerator.FAKE_US
 
 public class UserRepository {
 
-    List<User> users = new ArrayList<>(FAKE_USERS);
-
     private final ApiService apiService; // TODO: A utiliser
 
     public UserRepository(ApiService apiService) {
@@ -19,15 +17,15 @@ public class UserRepository {
     }
 
     public List<User> getUsers() {
-        return users;
+        return apiService.getUsers();
     }
 
 
     public void generateRandomUser() {
-        users.add(User.random());
+        apiService.generateRandomUser();
     }
 
     public void deleteUser(User user) {
-        users.remove(user);
+        apiService.deleteUser(user);
     }
 }
